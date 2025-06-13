@@ -8,7 +8,7 @@ const Hero: React.FC = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image */}
-      <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0 z-0 -mt-20">
         <img
           src="/images/hero-bg.png"
           alt="Business Growth Transformation"
@@ -19,13 +19,13 @@ const Hero: React.FC = () => {
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="max-w-6xl mx-auto text-center">
+        <div className="max-w-6xl mx-auto">
           {/* Badge - Dark/Light mode responsive */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="inline-flex items-center px-4 py-2 rounded-full bg-primary/10 dark:bg-primary/20 border border-primary/20 dark:border-primary/30 text-primary dark:text-primary text-sm font-medium mb-6 sm:mb-8 backdrop-blur-sm"
+            className="inline-flex items-center px-4 py-2 rounded-full bg-primary/10 dark:bg-primary/20 border border-primary/20 dark:border-primary/30 text-primary dark:text-primary text-sm font-medium mb-6 sm:mb-8 backdrop-blur-sm -mt-10"
           >
             <Zap className="w-4 h-4 mr-2 animate-pulse" />
             Growth & Strategic Solutions
@@ -36,33 +36,35 @@ const Hero: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-foreground mb-4 sm:mb-6 leading-tight"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-foreground mb-4 sm:mb-6 leading-tight text-left"
           >
-            <span className="block sm:inline whitespace-nowrap">
-              We bring{' '}
-              <span className="text-primary relative inline-block">
-                growth
-                <motion.div
-                  initial={{ scaleX: 0 }}
-                  animate={{ scaleX: 1 }}
-                  transition={{ duration: 0.8, delay: 1 }}
-                  className="absolute bottom-1 sm:bottom-2 left-0 right-0 h-2 sm:h-3 bg-primary/20 dark:bg-primary/30 -z-10"
-                />
+            <div className="flex flex-col">
+              <span className="whitespace-nowrap">
+                We bring{' '}
+                <span className="text-primary relative inline-block">
+                  growth
+                  <motion.div
+                    initial={{ scaleX: 0 }}
+                    animate={{ scaleX: 1 }}
+                    transition={{ duration: 0.8, delay: 1 }}
+                    className="absolute bottom-1 sm:bottom-2 left-0 right-0 h-2 sm:h-3 bg-primary/20 dark:bg-primary/30 -z-10"
+                  />
+                </span>
               </span>
-            </span>
-            <span className="block sm:inline whitespace-nowrap">
-              {' '}and{' '}
-              <span className="text-primary relative inline-block">
-                scale
-                <motion.div
-                  initial={{ scaleX: 0 }}
-                  animate={{ scaleX: 1 }}
-                  transition={{ duration: 0.8, delay: 1.2 }}
-                  className="absolute bottom-1 sm:bottom-2 left-0 right-0 h-2 sm:h-3 bg-primary/20 dark:bg-primary/30 -z-10"
-                />
+              <span className="whitespace-nowrap ml-4">
+              and{' '}
+                <span className="text-primary relative inline-block">
+                  scale
+                  <motion.div
+                    initial={{ scaleX: 0 }}
+                    animate={{ scaleX: 1 }}
+                    transition={{ duration: 0.8, delay: 1.2 }}
+                    className="absolute bottom-1 sm:bottom-2 left-0 right-0 h-2 sm:h-3 bg-primary/20 dark:bg-primary/30 -z-10"
+                  />
+                </span>
+                {' '}to life
               </span>
-              {' '}to life
-            </span>
+            </div>
           </motion.h1>
 
           {/* Subtitle */}
@@ -70,7 +72,7 @@ const Hero: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}
-            className="text-base sm:text-lg md:text-xl lg:text-2xl text-foreground/90 dark:text-foreground/80 mb-8 sm:mb-12 leading-relaxed max-w-4xl mx-auto px-2"
+            className="text-base sm:text-lg md:text-xl lg:text-2xl text-foreground/90 dark:text-foreground/80 mb-8 sm:mb-12 leading-relaxed max-w-2xl text-left"
           >
             We help businesses grow faster, scale with confidence, and solve what holds progress back where it matters most.
           </motion.p>
@@ -80,7 +82,7 @@ const Hero: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.7 }}
-            className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-12 sm:mb-16 justify-center px-2"
+            className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-12 sm:mb-16 justify-start px-2"
           >
             <Button 
               asChild 
@@ -101,49 +103,8 @@ const Hero: React.FC = () => {
               Watch Demo
             </Button>
           </motion.div>
-
-          {/* Stats */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.9 }}
-            className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 max-w-4xl mx-auto px-2"
-          >
-            {[
-              { number: '200+', label: 'Businesses Scaled' },
-              { number: '350%', label: 'Average Growth' },
-              { number: '99%', label: 'Client Satisfaction' },
-            ].map((stat, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6, delay: 1 + index * 0.1 }}
-                className="text-center p-4 rounded-lg bg-background/20 dark:bg-background/10 backdrop-blur-sm border border-border/20 dark:border-border/10 hover:bg-background/30 dark:hover:bg-background/20 transition-all duration-300"
-              >
-                <div className="text-2xl sm:text-3xl font-bold text-primary mb-2">
-                  {stat.number}
-                </div>
-                <div className="text-xs sm:text-sm text-foreground/80 dark:text-foreground/70 font-medium">
-                  {stat.label}
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
         </div>
       </div>
-
-      {/* Scroll indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.8, delay: 1.5 }}
-        className="absolute bottom-6 sm:bottom-8 left-1/2 transform -translate-x-1/2"
-      >
-        <div className="w-5 h-8 sm:w-6 sm:h-10 border-2 border-foreground/60 dark:border-foreground/40 rounded-full flex justify-center hover:border-primary transition-colors duration-300">
-          <div className="w-1 h-2 sm:h-3 bg-foreground/60 dark:bg-foreground/40 rounded-full mt-2 animate-bounce" />
-        </div>
-      </motion.div>
     </section>
   );
 };

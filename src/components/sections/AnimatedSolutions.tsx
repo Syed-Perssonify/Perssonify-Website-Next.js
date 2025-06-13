@@ -1,96 +1,147 @@
 import React from "react";
 import { Timeline } from "@/components/ui/timeline";
+import { title } from "process";
 
 export default function TimelineDemo() {
   const data = [
     {
-      title: "2024",
+      title: <span style={{ color: '#2abed1' }}>Creative Solutions</span>,
       content: (
         <div>
-          <div className="mb-6 space-y-3 text-sm text-neutral-700 dark:text-neutral-300">
+          <div className="mb-6 space-y-3 text-sm text-gray-600 dark:text-gray-300">
             <p>
-              In 2024, Perssonify has reached new heights in our mission to transform digital experiences. 
-              Our commitment to innovation and excellence has led to significant breakthroughs in our service offerings.
+              Visual Storytelling that Captivates & Converts. Creativity is the cornerstone of effective communication. 
+              From engaging social media visuals to high-impact marketing collateral, Perssonify's creative solutions 
+              ensure your brand stands out in a crowded digital landscape.
             </p>
             <p>
-              We've expanded our reach globally while maintaining the quality and personal touch that defines our brand. 
-              This year marks a pivotal moment in our journey of growth and technological advancement.
+              Our approach blends strategic messaging with compelling design to deliver assets that drive engagement, 
+              reinforce brand identity, and accelerate conversions.
             </p>
           </div>
           <div className="space-y-3">
-            <div className="flex items-center gap-2 text-sm text-neutral-700 dark:text-neutral-300">
-              • Launched Perssonify's AI-powered personalization engine
+            <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300">
+              • Social Media Graphics – Static images, GIFs, carousel ads, and post templates for brand consistency
             </div>
-            <div className="flex items-center gap-2 text-sm text-neutral-700 dark:text-neutral-300">
-              • Expanded operations to European markets
+            <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300">
+              • Ad Creatives – High-performance static and motion graphics for paid media campaigns
             </div>
-            <div className="flex items-center gap-2 text-sm text-neutral-700 dark:text-neutral-300">
-              • Achieved ISO 27001 certification for security standards
+            <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300">
+              • Video Content – Short-form promotional videos, explainer videos, and branded reels
             </div>
-            <div className="flex items-center gap-2 text-sm text-neutral-700 dark:text-neutral-300">
-              • Developed new enterprise-grade analytics platform
+            <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300">
+              • Landing Page & Email Designs – Visually optimized pages and email templates that drive action
+            </div>
+            <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300">
+              • Custom Branding Assets – Business presentations, marketing brochures, and sales enablement materials
             </div>
           </div>
         </div>
       ),
     },
     {
-      title: "2023",
+      title: <span style={{ color: '#2abed1' }}>Email Marketing</span>,
       content: (
         <div>
-          <div className="mb-6 space-y-3 text-sm text-neutral-700 dark:text-neutral-300">
+          <div className="mb-6 space-y-3 text-sm text-gray-600 dark:text-gray-300">
             <p>
-              2023 was a year of strategic growth and technological innovation for Perssonify. 
-              We focused on building robust infrastructure and expanding our service capabilities.
+              Turning Prospects into Customers with Automated, Data-Driven Nurturing. Email marketing and marketing automation 
+              are critical for sustained engagement, lead nurturing, and customer conversion.
             </p>
             <p>
-              Our team grew significantly, bringing in top talent from across the industry. 
-              We established key partnerships that would shape our future growth trajectory.
+              By automating workflows, integrating CRM systems, and delivering high-impact email sequences, 
+              we help businesses streamline customer journeys, improve retention, and maximize ROI.
             </p>
           </div>
           <div className="space-y-3">
-            <div className="flex items-center gap-2 text-sm text-neutral-700 dark:text-neutral-300">
-              • Secured Series A funding of $5M
+            <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300">
+              • Automated Email Sequences – Behavior-triggered email workflows for onboarding, promotions, abandoned carts, re-engagement, and retention
             </div>
-            <div className="flex items-center gap-2 text-sm text-neutral-700 dark:text-neutral-300">
-              • Launched Perssonify's core platform
+            <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300">
+              • Lead Nurturing Campaigns – Targeted email sequences that move leads through the funnel and drive higher conversion rates
             </div>
-            <div className="flex items-center gap-2 text-sm text-neutral-700 dark:text-neutral-300">
-              • Established strategic partnerships with major tech firms
+            <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300">
+              • CRM & Marketing Automation Integration – Connecting email campaigns with HubSpot, Salesforce, Klaviyo, or other platforms
             </div>
-            <div className="flex items-center gap-2 text-sm text-neutral-700 dark:text-neutral-300">
-              • Built and deployed scalable cloud infrastructure
+            <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300">
+              • Performance Analytics & Optimization – A/B testing, deliverability monitoring, and engagement tracking
+            </div>
+            <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300">
+              • Segmentation & Personalization – Tailoring email content based on customer behavior, demographics, and intent signals
             </div>
           </div>
         </div>
       ),
     },
     {
-      title: "2022",
+      title: <span style={{ color: '#2abed1' }}>Performance Marketing</span>,
       content: (
         <div>
-          <div className="mb-6 space-y-3 text-sm text-neutral-700 dark:text-neutral-300">
+          <div className="mb-6 space-y-3 text-sm text-gray-600 dark:text-gray-300">
             <p>
-              The founding year of Perssonify marked the beginning of our journey to revolutionize 
-              digital personalization. We started with a clear vision and a dedicated team.
+              Driving Customers, Users & Revenue with Precision Advertising and Multi-Platform Reach. 
+              Digital advertising should be an investment with a measurable return.
             </p>
             <p>
-              Our initial focus was on developing our core technology and establishing our market presence. 
-              We laid the groundwork for what would become a transformative platform.
+              Our performance-driven ad campaigns are structured to maximize conversions, optimize budgets, 
+              and generate high-value leads, customers, and users across multiple platforms.
             </p>
           </div>
           <div className="space-y-3">
-            <div className="flex items-center gap-2 text-sm text-neutral-700 dark:text-neutral-300">
-              • Founded Perssonify with seed funding
+            <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300">
+              • Ad Strategy & Setup – Identifying high-intent audiences, keyword research, and targeting optimization
             </div>
-            <div className="flex items-center gap-2 text-sm text-neutral-700 dark:text-neutral-300">
-              • Developed initial prototype and MVP
+            <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300">
+              • Cross-Platform Execution – Google Ads, Display Network, YouTube, Meta, LinkedIn, Content Recommendation Networks, and more
             </div>
-            <div className="flex items-center gap-2 text-sm text-neutral-700 dark:text-neutral-300">
-              • Established first client partnerships
+            <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300">
+              • Creative Development – High-converting ad creatives, including static, carousel, and video formats
             </div>
-            <div className="flex items-center gap-2 text-sm text-neutral-700 dark:text-neutral-300">
-              • Built core development team
+            <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300">
+              • Bid & Budget Optimization – Maximizing ROI through dynamic budget allocation and A/B testing
+            </div>
+            <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300">
+              • Landing Page Optimization – Custom landing pages built for high engagement and conversion rates
+            </div>
+            <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300">
+              • Real-Time Analytics & Reporting – Continuous campaign monitoring and strategic adjustments
+            </div>
+          </div>
+        </div>
+      ),
+    },
+    {
+      title: <span style={{ color: '#2abed1' }}>Social Media Marketing</span>,
+      content: (
+        <div>
+          <div className="mb-6 space-y-3 text-sm text-gray-600 dark:text-gray-300">
+            <p>
+              Building Conversations, Communities & Conversions. Social media is more than just content—it's about 
+              building authentic relationships and driving audience engagement that leads to action.
+            </p>
+            <p>
+              Our social media strategies are data-driven, creative, and results-focused, ensuring your brand 
+              connects with the right audience in meaningful ways.
+            </p>
+          </div>
+          <div className="space-y-3">
+            <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300">
+              • Content Strategy & Planning – Defining and implementing your brand's voice, visual identity, and engagement roadmap
+            </div>
+            <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300">
+              • Content Creation & Distribution – High-impact creatives including image-based posts, GIFs, carousels, and videos
+            </div>
+            <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300">
+              • Platform Management – Facebook, Instagram, LinkedIn, YouTube, X (Formerly Twitter), TikTok and Google My Business
+            </div>
+            <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300">
+              • Engagement & Community Building – Active response management, audience interaction, and social listening
+            </div>
+            <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300">
+              • Paid Social Advertising / Boosting – Targeted campaigns that drive awareness, engagement and audience growth
+            </div>
+            <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300">
+              • Influencer & UGC Management – Partnerships with relevant influencers for credibility and reach
             </div>
           </div>
         </div>
