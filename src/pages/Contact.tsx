@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Clock, ArrowRight, CheckCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -49,26 +48,26 @@ const Contact: React.FC = () => {
     {
       icon: Mail,
       title: 'Email Us',
-      description: 'hello@perssonify.com',
+      description: 'sean@perssonify.com',
+      action: 'Send us an email'
+    },
+    {
+      icon: Mail,
+      title: 'Alternative Email',
+      description: 'stefan@perssonify.com',
       action: 'Send us an email'
     },
     {
       icon: Phone,
       title: 'Call Us',
-      description: '+1 (555) 123-4567',
+      description: '+1 (609) 510-2061',
       action: 'Schedule a call'
     },
     {
       icon: MapPin,
       title: 'Visit Us',
-      description: 'San Francisco, CA',
+      description: 'United States',
       action: 'Get directions'
-    },
-    {
-      icon: Clock,
-      title: 'Business Hours',
-      description: 'Mon-Fri 9AM-6PM PST',
-      action: 'See availability'
     }
   ];
 
