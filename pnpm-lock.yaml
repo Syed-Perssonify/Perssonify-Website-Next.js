@@ -126,8 +126,8 @@ importers:
         specifier: ^0.462.0
         version: 0.462.0(react@18.3.1)
       motion:
-        specifier: ^12.17.3
-        version: 12.17.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: ^12.18.0
+        version: 12.18.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       next-themes:
         specifier: ^0.3.0
         version: 0.3.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -1994,6 +1994,20 @@ packages:
       react-dom:
         optional: true
 
+  framer-motion@12.18.0:
+    resolution: {integrity: sha512-/wkogCg1Z1/f3Z/qtt1CWA5hlMBjHoE2bMv4BdCGkzOdtRZ4gpHHcFTNq5w7Y1XQxOka2+dFRs1MXrX53XWSow==}
+    peerDependencies:
+      '@emotion/is-prop-valid': '*'
+      react: ^18.0.0 || ^19.0.0
+      react-dom: ^18.0.0 || ^19.0.0
+    peerDependenciesMeta:
+      '@emotion/is-prop-valid':
+        optional: true
+      react:
+        optional: true
+      react-dom:
+        optional: true
+
   fsevents@2.3.3:
     resolution: {integrity: sha512-5xoDfX+fL7faATnagmWPpbFtwh/R77WmMMqqHGS65C3vvB0YHrgF+B1YmZ3441tMj5n63k0212XNoJwzlhffQw==}
     engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
@@ -2188,8 +2202,8 @@ packages:
   motion-utils@12.12.1:
     resolution: {integrity: sha512-f9qiqUHm7hWSLlNW8gS9pisnsN7CRFRD58vNjptKdsqFLpkVnX00TNeD6Q0d27V9KzT7ySFyK1TZ/DShfVOv6w==}
 
-  motion@12.17.3:
-    resolution: {integrity: sha512-zf4+ppV5HE2bvaGZDWK6oySvS7uig/9eniq0JX/JuM0G9LqrLGxtFUF7b8CUMJ/0bo2ReID6yGWbS0LUxKzYZQ==}
+  motion@12.18.0:
+    resolution: {integrity: sha512-WdmoFLcymQzwjCMfa2g8G1qeRJ2uKrTXRQ1SoF+VM3zWBHI9L8JQfktgtdXpQLTZlP9yMou7fbxHDcrAGKrFeA==}
     peerDependencies:
       '@emotion/is-prop-valid': '*'
       react: ^18.0.0 || ^19.0.0
@@ -4422,6 +4436,15 @@ snapshots:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
+  framer-motion@12.18.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+    dependencies:
+      motion-dom: 12.17.3
+      motion-utils: 12.12.1
+      tslib: 2.8.1
+    optionalDependencies:
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
+
   fsevents@2.3.3:
     optional: true
 
@@ -4590,9 +4613,9 @@ snapshots:
 
   motion-utils@12.12.1: {}
 
-  motion@12.17.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  motion@12.18.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
-      framer-motion: 12.17.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      framer-motion: 12.18.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       tslib: 2.8.1
     optionalDependencies:
       react: 18.3.1
