@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, TrendingUp, Cog, Target, Zap } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 type IconProps = {
   className?: string;
@@ -20,7 +20,8 @@ type Section = {
 
 const AnimatedSolutions: React.FC = () => {
   const [activeSection, setActiveSection] = useState<number>(0);
-  const { scrollY } = useScroll();
+  const containerRef = useRef<HTMLDivElement>(null);
+  const sectionsRef = useRef<HTMLDivElement[]>([]);
 
   const sections: Section[] = [
     {
@@ -91,129 +92,178 @@ const AnimatedSolutions: React.FC = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollPosition = window.scrollY;
-      const windowHeight = window.innerHeight;
-      const sectionHeight = windowHeight * 0.8;
-      const currentSection = Math.floor(scrollPosition / sectionHeight);
-      setActiveSection(Math.min(currentSection, sections.length - 1));
+      if (!containerRef.current) return;
+      
+      const containerRect = containerRef.current.getBoundingClientRect();
+      const containerTop = containerRect.top;
+      const containerHeight = containerRect.height;
+      
+      // Only calculate if the container is in view
+      if (containerTop <= window.innerHeight && containerTop + containerHeight >= 0) {
+        const scrollProgress = Math.abs(containerTop) / (containerHeight - window.innerHeight);
+        const sectionIndex = Math.min(
+          Math.floor(scrollProgress * sections.length), 
+          sections.length - 1
+        );
+        
+        setActiveSection(Math.max(0, sectionIndex));
+      }
     };
 
     window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Initial call
+    
     return () => window.removeEventListener('scroll', handleScroll);
   }, [sections.length]);
 
+  const handleSectionClick = (index: number) => {
+    setActiveSection(index);
+    // Smooth scroll to make the section more visible
+    if (containerRef.current) {
+      const targetScroll = (index / sections.length) * (containerRef.current.offsetHeight - window.innerHeight);
+      window.scrollTo({
+        top: containerRef.current.offsetTop + targetScroll,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   return (
-    <section className="relative min-h-screen bg-background pt-20">
-      <div className="container mx-auto px-4">
-        <div className="grid lg:grid-cols-12 gap-8 min-h-[calc(100vh-5rem)]">
-          {/* Left side - Navigation titles */}
-          <div className="lg:col-span-3 flex flex-col justify-center space-y-8 sticky top-1/2 transform -translate-y-1/2 h-fit">
-            {sections.map((section, index) => (
-              <motion.div
-                key={section.title}
-                initial={{ opacity: 0, x: -50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className={`cursor-pointer transition-all duration-300 ${
-                  activeSection === index 
-                    ? 'scale-110 text-primary' 
-                    : 'text-muted-foreground hover:text-foreground'
-                }`}
-                onClick={() => setActiveSection(index)}
-              >
-                <motion.h3
-                  className="text-4xl md:text-5xl font-bold font-playfair text-center lg:text-left"
-                  animate={{
-                    scale: activeSection === index ? 1.1 : 1,
-                    color: activeSection === index ? 'hsl(var(--primary))' : 'hsl(var(--muted-foreground))'
-                  }}
-                  transition={{ duration: 0.3 }}
+    <section 
+      ref={containerRef}
+      className="relative bg-background"
+      style={{ height: `${sections.length * 100}vh` }}
+    >
+      <div className="sticky top-0 h-screen flex items-center">
+        <div className="container mx-auto px-4 w-full">
+          <div className="grid lg:grid-cols-12 gap-8 h-full items-center">
+            {/* Left side - Navigation titles */}
+            <div className="lg:col-span-3 flex flex-col justify-center space-y-8">
+              {sections.map((section, index) => (
+                <motion.div
+                  key={section.title}
+                  initial={{ opacity: 0, x: -50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  className={`cursor-pointer transition-all duration-500 ${
+                    activeSection === index 
+                      ? 'scale-105 text-primary' 
+                      : 'text-muted-foreground hover:text-foreground hover:scale-102'
+                  }`}
+                  onClick={() => handleSectionClick(index)}
                 >
-                  {section.title}
-                </motion.h3>
-                {activeSection === index && (
-                  <motion.div
-                    initial={{ scaleX: 0 }}
-                    animate={{ scaleX: 1 }}
-                    className="h-1 bg-primary rounded-full mt-2 origin-left"
-                    transition={{ duration: 0.3 }}
-                  />
-                )}
-              </motion.div>
-            ))}
-          </div>
+                  <h3 className="text-4xl md:text-5xl font-bold font-playfair text-center lg:text-left transition-all duration-500">
+                    {section.title}
+                  </h3>
+                </motion.div>
+              ))}
+            </div>
 
-          {/* Right side - Content */}
-          <div className="lg:col-span-9 flex items-center">
-            <motion.div
-              key={activeSection}
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="w-full"
-            >
-              <div className={`p-8 rounded-3xl bg-gradient-to-br ${
-                sections[activeSection].color === 'primary' 
-                  ? 'from-primary/10 to-primary/5' 
-                  : 'from-accent/10 to-accent/5'
-              } border-0 custom-shadow`}>
-                <div className="flex flex-col lg:flex-row items-center lg:items-start mb-6">
-                  <div className={`w-16 h-16 rounded-xl ${
-                    sections[activeSection].color === 'primary' 
-                      ? 'bg-primary/20' 
-                      : 'bg-accent/20'
-                  } flex items-center justify-center mb-4 lg:mb-0 lg:mr-4`}>
-                    {(() => {
-                      const Icon = sections[activeSection].icon;
-                      return <Icon className={`w-8 h-8 ${
+            {/* Right side - Content */}
+            <div className="lg:col-span-9 flex items-center">
+              <motion.div
+                key={activeSection}
+                initial={{ opacity: 0, y: 30, scale: 0.95 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                transition={{ duration: 0.7, ease: "easeOut" }}
+                className="w-full"
+              >
+                <div className={`p-8 rounded-3xl bg-gradient-to-br ${
+                  sections[activeSection].color === 'primary' 
+                    ? 'from-primary/10 to-primary/5' 
+                    : 'from-accent/10 to-accent/5'
+                } border border-border/50 shadow-2xl backdrop-blur-sm`}>
+                  <div className="flex flex-col lg:flex-row items-center lg:items-start mb-6">
+                    <motion.div 
+                      className={`w-16 h-16 rounded-xl ${
                         sections[activeSection].color === 'primary' 
-                          ? 'text-primary' 
-                          : 'text-accent'
-                      }`} />;
-                    })()}
-                  </div>
-                  <div className="text-center lg:text-left">
-                    <h2 className="text-3xl font-bold font-playfair text-foreground mb-2">
-                      {sections[activeSection].title} Solutions
-                    </h2>
-                    <p className="text-lg font-semibold text-foreground/80">
-                      {sections[activeSection].subtitle}
-                    </p>
-                  </div>
-                </div>
-
-                <p className="text-muted-foreground leading-relaxed mb-8 text-lg text-center lg:text-left">
-                  {sections[activeSection].description}
-                </p>
-
-                <div className="space-y-4 mb-8">
-                  <h4 className="font-semibold text-foreground text-lg text-center lg:text-left">Key Services:</h4>
-                  <div className="grid md:grid-cols-2 gap-3">
-                    {sections[activeSection].features.map((feature, idx) => (
-                      <motion.div
-                        key={idx}
-                        initial={{ opacity: 0, x: -20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.4, delay: idx * 0.1 }}
-                        className="flex items-center text-muted-foreground"
+                          ? 'bg-primary/20' 
+                          : 'bg-accent/20'
+                      } flex items-center justify-center mb-4 lg:mb-0 lg:mr-4`}
+                      whileHover={{ scale: 1.1, rotate: 5 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      {(() => {
+                        const Icon = sections[activeSection].icon;
+                        return <Icon className={`w-8 h-8 ${
+                          sections[activeSection].color === 'primary' 
+                            ? 'text-primary' 
+                            : 'text-accent'
+                        }`} />;
+                      })()}
+                    </motion.div>
+                    <div className="text-center lg:text-left">
+                      <motion.h2 
+                        className="text-3xl font-bold font-playfair text-foreground mb-2"
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.2 }}
                       >
-                        <Zap className="w-4 h-4 text-primary mr-3 flex-shrink-0" />
-                        {feature}
-                      </motion.div>
-                    ))}
+                        {sections[activeSection].title} Solutions
+                      </motion.h2>
+                      <motion.p 
+                        className="text-lg font-semibold text-foreground/80"
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.3 }}
+                      >
+                        {sections[activeSection].subtitle}
+                      </motion.p>
+                    </div>
                   </div>
-                </div>
 
-                <div className="flex justify-center lg:justify-start">
-                  <Button asChild className="group">
-                    <Link to={sections[activeSection].href}>
-                      Explore {sections[activeSection].title} Solutions
-                      <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                    </Link>
-                  </Button>
+                  <motion.p 
+                    className="text-muted-foreground leading-relaxed mb-8 text-lg text-center lg:text-left"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.4 }}
+                  >
+                    {sections[activeSection].description}
+                  </motion.p>
+
+                  <motion.div 
+                    className="space-y-4 mb-8"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.5 }}
+                  >
+                    <h4 className="font-semibold text-foreground text-lg text-center lg:text-left">Key Services:</h4>
+                    <div className="grid md:grid-cols-2 gap-3">
+                      {sections[activeSection].features.map((feature, idx) => (
+                        <motion.div
+                          key={idx}
+                          initial={{ opacity: 0, x: -20 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ duration: 0.4, delay: 0.6 + idx * 0.1 }}
+                          className="flex items-center text-muted-foreground hover:text-foreground transition-colors duration-300"
+                        >
+                          <Zap className={`w-4 h-4 mr-3 flex-shrink-0 ${
+                            sections[activeSection].color === 'primary' 
+                              ? 'text-primary' 
+                              : 'text-accent'
+                          }`} />
+                          {feature}
+                        </motion.div>
+                      ))}
+                    </div>
+                  </motion.div>
+
+                  <motion.div 
+                    className="flex justify-center lg:justify-start"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.8 }}
+                  >
+                    <Button asChild className="group hover:scale-105 transition-transform duration-300">
+                      <Link to={sections[activeSection].href}>
+                        Explore {sections[activeSection].title} Solutions
+                        <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
+                      </Link>
+                    </Button>
+                  </motion.div>
                 </div>
-              </div>
-            </motion.div>
+              </motion.div>
+            </div>
           </div>
         </div>
       </div>

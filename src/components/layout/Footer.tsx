@@ -79,15 +79,19 @@ const Footer: React.FC = () => {
               <div className="space-y-3">
                 <div className="flex items-center space-x-3 text-sm text-muted-foreground">
                   <Phone className="w-4 h-4" />
-                  <span>+1 (555) 123-4567</span>
+                  <span>+1 (609) 510-2061</span>
                 </div>
                 <div className="flex items-center space-x-3 text-sm text-muted-foreground">
                   <Mail className="w-4 h-4" />
-                  <span>hello@perssonify.com</span>
+                  <span>sean@perssonify.com</span>
+                </div>
+                <div className="flex items-center space-x-3 text-sm text-muted-foreground">
+                  <Mail className="w-4 h-4" />
+                  <span>stefan@perssonify.com</span>
                 </div>
                 <div className="flex items-center space-x-3 text-sm text-muted-foreground">
                   <MapPin className="w-4 h-4" />
-                  <span>San Francisco, CA</span>
+                  <span>United States</span>
                 </div>
               </div>
             </motion.div>
