@@ -6,71 +6,35 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { motion } from 'framer-motion';
 import { useToast } from '@/hooks/use-toast';
-import { supabase } from '@/lib/supabase';
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    phone: '',
     company: '',
     solutionType: '',
-    preferredContact: 'email',
     message: ''
   });
-  const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
-
-    try {
-      const { error } = await supabase
-        .from('contact_submissions')
-        .insert([
-          {
-            name: formData.name,
-            email: formData.email,
-            phone: formData.phone,
-            company: formData.company,
-            solution_type: formData.solutionType,
-            preferred_contact: formData.preferredContact,
-            message: formData.message,
-            created_at: new Date().toISOString()
-          }
-        ]);
-
-      if (error) throw error;
-
-      toast({
-        title: "Message sent successfully!",
-        description: "We'll get back to you within 24 hours.",
-      });
-
-      // Reset form
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        company: '',
-        solutionType: '',
-        preferredContact: 'email',
-        message: ''
-      });
-    } catch (error) {
-      console.error('Error submitting form:', error);
-      toast({
-        title: "Error sending message",
-        description: "Please try again later or contact us directly.",
-        variant: "destructive"
-      });
-    } finally {
-      setIsSubmitting(false);
-    }
+    // Here you would typically send the form data to your backend
+    console.log('Form submitted:', formData);
+    toast({
+      title: "Message sent successfully!",
+      description: "We'll get back to you within 24 hours.",
+    });
+    // Reset form
+    setFormData({
+      name: '',
+      email: '',
+      company: '',
+      solutionType: '',
+      message: ''
+    });
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -168,18 +132,6 @@ const Contact: React.FC = () => {
                         />
                       </div>
                     </div>
-
-                    <div className="space-y-2">
-                      <Label htmlFor="phone">Phone Number</Label>
-                      <Input
-                        id="phone"
-                        name="phone"
-                        type="tel"
-                        value={formData.phone}
-                        onChange={handleInputChange}
-                        placeholder="+1 (555) 123-4567"
-                      />
-                    </div>
                     
                     <div className="space-y-2">
                       <Label htmlFor="company">Company Name</Label>
@@ -208,28 +160,6 @@ const Contact: React.FC = () => {
                     </div>
 
                     <div className="space-y-2">
-                      <Label>Preferred Contact Method</Label>
-                      <RadioGroup
-                        value={formData.preferredContact}
-                        onValueChange={(value) => setFormData({...formData, preferredContact: value})}
-                        className="flex flex-col space-y-2"
-                      >
-                        <div className="flex items-center space-x-2">
-                          <RadioGroupItem value="email" id="email-contact" />
-                          <Label htmlFor="email-contact" className="cursor-pointer">Email</Label>
-                        </div>
-                        <div className="flex items-center space-x-2">
-                          <RadioGroupItem value="phone" id="phone-contact" />
-                          <Label htmlFor="phone-contact" className="cursor-pointer">Phone</Label>
-                        </div>
-                        <div className="flex items-center space-x-2">
-                          <RadioGroupItem value="both" id="both-contact" />
-                          <Label htmlFor="both-contact" className="cursor-pointer">Both</Label>
-                        </div>
-                      </RadioGroup>
-                    </div>
-
-                    <div className="space-y-2">
                       <Label htmlFor="message">Tell us about your challenges *</Label>
                       <Textarea
                         id="message"
@@ -242,14 +172,9 @@ const Contact: React.FC = () => {
                       />
                     </div>
 
-                    <Button 
-                      type="submit" 
-                      className="w-full" 
-                      size="lg"
-                      disabled={isSubmitting}
-                    >
-                      {isSubmitting ? 'Sending...' : 'Send Message'}
-                      {!isSubmitting && <ArrowRight className="ml-2 w-4 h-4" />}
+                    <Button type="submit" className="w-full" size="lg">
+                      Send Message
+                      <ArrowRight className="ml-2 w-4 h-4" />
                     </Button>
                   </form>
                 </CardContent>

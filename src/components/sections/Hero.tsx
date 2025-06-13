@@ -36,7 +36,7 @@ const Hero: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold font-playfair text-foreground mb-4 sm:mb-6 leading-tight"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-foreground mb-4 sm:mb-6 leading-tight"
           >
             <span className="block sm:inline whitespace-nowrap">
               We bring{' '}
@@ -121,7 +121,7 @@ const Hero: React.FC = () => {
                 transition={{ duration: 0.6, delay: 1 + index * 0.1 }}
                 className="text-center p-4 rounded-lg bg-background/20 dark:bg-background/10 backdrop-blur-sm border border-border/20 dark:border-border/10 hover:bg-background/30 dark:hover:bg-background/20 transition-all duration-300"
               >
-                <div className="text-2xl sm:text-3xl font-bold text-primary font-playfair mb-2">
+                <div className="text-2xl sm:text-3xl font-bold text-primary mb-2">
                   {stat.number}
                 </div>
                 <div className="text-xs sm:text-sm text-foreground/80 dark:text-foreground/70 font-medium">
