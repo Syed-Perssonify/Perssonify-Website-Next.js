@@ -83,10 +83,6 @@ const Footer: React.FC = () => {
                 </div>
                 <div className="flex items-center space-x-3 text-sm text-muted-foreground">
                   <Mail className="w-4 h-4" />
-                  <span>sean@perssonify.com</span>
-                </div>
-                <div className="flex items-center space-x-3 text-sm text-muted-foreground">
-                  <Mail className="w-4 h-4" />
                   <span>stefan@perssonify.com</span>
                 </div>
                 <div className="flex items-center space-x-3 text-sm text-muted-foreground">

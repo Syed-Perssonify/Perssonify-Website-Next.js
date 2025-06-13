@@ -48,12 +48,6 @@ const Contact: React.FC = () => {
     {
       icon: Mail,
       title: 'Email Us',
-      description: 'sean@perssonify.com',
-      action: 'Send us an email'
-    },
-    {
-      icon: Mail,
-      title: 'Alternative Email',
       description: 'stefan@perssonify.com',
       action: 'Send us an email'
     },
