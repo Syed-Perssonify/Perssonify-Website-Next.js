@@ -8,6 +8,9 @@ export default defineConfig(({ mode }) => ({
   server: {
     host: "::",
     port: 8080,
+    strictPort: true,
+    // Remove the problematic proxy configuration
+    // Add historyApiFallback for SPA routing
     historyApiFallback: true,
   },
   plugins: [
