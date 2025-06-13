@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Play } from 'lucide-react';
+import { ArrowRight, Play, TrendingUp, Zap } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
 
@@ -20,14 +20,49 @@ const Hero: React.FC = () => {
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-6xl mx-auto text-center">
-          {/* Main Headline */}
+          {/* Badge - Dark/Light mode responsive */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="inline-flex items-center px-4 py-2 rounded-full bg-primary/10 dark:bg-primary/20 border border-primary/20 dark:border-primary/30 text-primary dark:text-primary text-sm font-medium mb-6 sm:mb-8 backdrop-blur-sm"
+          >
+            <Zap className="w-4 h-4 mr-2 animate-pulse" />
+            Growth & Strategic Solutions
+          </motion.div>
+
+          {/* Main Headline - Single line responsive */}
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
             className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold font-playfair text-foreground mb-4 sm:mb-6 leading-tight"
           >
-            Transform Your Business Growth
+            <span className="block sm:inline whitespace-nowrap">
+              We bring{' '}
+              <span className="text-primary relative inline-block">
+                growth
+                <motion.div
+                  initial={{ scaleX: 0 }}
+                  animate={{ scaleX: 1 }}
+                  transition={{ duration: 0.8, delay: 1 }}
+                  className="absolute bottom-1 sm:bottom-2 left-0 right-0 h-2 sm:h-3 bg-primary/20 dark:bg-primary/30 -z-10"
+                />
+              </span>
+            </span>
+            <span className="block sm:inline whitespace-nowrap">
+              {' '}and{' '}
+              <span className="text-primary relative inline-block">
+                scale
+                <motion.div
+                  initial={{ scaleX: 0 }}
+                  animate={{ scaleX: 1 }}
+                  transition={{ duration: 0.8, delay: 1.2 }}
+                  className="absolute bottom-1 sm:bottom-2 left-0 right-0 h-2 sm:h-3 bg-primary/20 dark:bg-primary/30 -z-10"
+                />
+              </span>
+              {' '}to life
+            </span>
           </motion.h1>
 
           {/* Subtitle */}
@@ -37,7 +72,7 @@ const Hero: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.5 }}
             className="text-base sm:text-lg md:text-xl lg:text-2xl text-foreground/90 dark:text-foreground/80 mb-8 sm:mb-12 leading-relaxed max-w-4xl mx-auto px-2"
           >
-            Scale with confidence and achieve sustainable growth
+            We help businesses grow faster, scale with confidence, and solve what holds progress back where it matters most.
           </motion.p>
 
           {/* CTA Buttons */}
@@ -53,7 +88,7 @@ const Hero: React.FC = () => {
               className="group w-full sm:w-auto text-sm sm:text-base px-6 sm:px-8 py-3 sm:py-4 hover:scale-105 transition-all duration-300"
             >
               <Link to="/contact">
-                Get Started
+                Start Your Growth Journey
                 <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Link>
             </Button>
