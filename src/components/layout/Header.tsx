@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { Menu, X, Sun, Moon, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -14,7 +15,7 @@ interface HeaderProps {
 const Header: React.FC<HeaderProps> = ({ isDarkMode, toggleDarkMode }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
-  const location = useLocation();
+  const router = useRouter();
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   const navigation = [
@@ -47,7 +48,7 @@ const Header: React.FC<HeaderProps> = ({ isDarkMode, toggleDarkMode }) => {
     { name: 'Contact', href: '/contact' },
   ];
 
-  const isActive = (path: string) => location.pathname === path || location.pathname.startsWith(path + '/');
+  const isActive = (path: string) => router.pathname === path || router.pathname.startsWith(path + '/');
 
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -75,7 +76,7 @@ const Header: React.FC<HeaderProps> = ({ isDarkMode, toggleDarkMode }) => {
       <div className="container mx-auto px-4 sm:px-6">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2 pl-1 sm:pl-4">
+          <Link href="/" className="flex items-center space-x-2 pl-1 sm:pl-4">
             <motion.img
               whileHover={{ scale: 1.05 }}
               src={isDarkMode ? LogoWhite : LogoBlack}
@@ -125,7 +126,7 @@ const Header: React.FC<HeaderProps> = ({ isDarkMode, toggleDarkMode }) => {
                                 transition={{ delay: index * 0.05 }}
                               >
                                 <Link
-                                  to={dropdownItem.href}
+                                  href={dropdownItem.href}
                                   className="block px-4 py-2 text-sm text-foreground/80 hover:text-primary hover:bg-muted/50 transition-colors"
                                   onClick={() => setActiveDropdown(null)}
                                 >
@@ -140,7 +141,7 @@ const Header: React.FC<HeaderProps> = ({ isDarkMode, toggleDarkMode }) => {
                   </div>
                 ) : (
                   <Link
-                    to={item.href}
+                    href={item.href}
                     className={`text-sm font-medium transition-colors hover:text-primary ${
                       isActive(item.href) ? 'text-primary' : 'text-foreground/80'
                     }`}
@@ -163,7 +164,7 @@ const Header: React.FC<HeaderProps> = ({ isDarkMode, toggleDarkMode }) => {
               {isDarkMode ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
             </Button>
             <Button asChild size="sm" className="h-8">
-              <Link to="/contact">Get Started</Link>
+              <Link href="/contact">Get Started</Link>
             </Button>
           </div>
 
@@ -233,7 +234,7 @@ const Header: React.FC<HeaderProps> = ({ isDarkMode, toggleDarkMode }) => {
                               {item.dropdownItems?.map((dropdownItem) => (
                                 <Link
                                   key={dropdownItem.name}
-                                  to={dropdownItem.href}
+                                  href={dropdownItem.href}
                                   onClick={() => {
                                     setIsMenuOpen(false);
                                     setActiveDropdown(null);
@@ -249,7 +250,7 @@ const Header: React.FC<HeaderProps> = ({ isDarkMode, toggleDarkMode }) => {
                       </div>
                     ) : (
                       <Link
-                        to={item.href}
+                        href={item.href}
                         onClick={() => setIsMenuOpen(false)}
                         className={`block px-4 py-2 text-sm font-medium transition-colors hover:text-primary ${
                           isActive(item.href) ? 'text-primary' : 'text-foreground/80'
@@ -262,7 +263,7 @@ const Header: React.FC<HeaderProps> = ({ isDarkMode, toggleDarkMode }) => {
                 ))}
                 <div className="px-4 py-2">
                   <Button asChild className="w-full">
-                    <Link to="/contact" onClick={() => setIsMenuOpen(false)}>
+                    <Link href="/contact" onClick={() => setIsMenuOpen(false)}>
                       Get Started
                     </Link>
                   </Button>

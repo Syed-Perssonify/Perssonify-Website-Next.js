@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Outlet } from 'react-router-dom';
 import Header from './Header';
 import Footer from './Footer';
 
-const Layout: React.FC = () => {
+interface LayoutProps {
+  children: React.ReactNode;
+}
+
+const Layout: React.FC<LayoutProps> = ({ children }) => {
   const [isDarkMode, setIsDarkMode] = useState(false);
 
   useEffect(() => {
@@ -31,7 +34,7 @@ const Layout: React.FC = () => {
     <div className="min-h-screen bg-background text-foreground flex flex-col">
       <Header isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} />
       <main className="flex-1">
-        <Outlet />
+        {children}
       </main>
       <Footer />
     </div>

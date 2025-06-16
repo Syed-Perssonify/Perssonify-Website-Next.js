@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { Linkedin, Twitter, Facebook, Youtube, Shield, Lock, CheckCircle, Award, Phone, Mail, MapPin, TrendingUp } from 'lucide-react';
 import { motion } from 'framer-motion';
 
@@ -60,7 +60,7 @@ const Footer: React.FC = () => {
               transition={{ duration: 0.6 }}
               className="lg:col-span-2"
             >
-              <Link to="/" className="inline-block mb-4">
+              <Link href="/" className="inline-block mb-4">
                 <div className="flex items-center space-x-3">
                   <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
                     <TrendingUp size={24} color="black" />
@@ -102,7 +102,7 @@ const Footer: React.FC = () => {
                 {footerLinks.solutions.map((link) => (
                   <li key={link.name}>
                     <Link
-                      to={link.href}
+                      href={link.href}
                       className="text-sm text-muted-foreground hover:text-primary transition-colors"
                     >
                       {link.name}
@@ -122,22 +122,12 @@ const Footer: React.FC = () => {
               <ul className="space-y-3">
                 {footerLinks.company.map((link) => (
                   <li key={link.name}>
-                    {link.name === 'Blog' ? (
-                      <Link
-                        to={link.href}
-                        className="text-sm text-muted-foreground hover:text-primary transition-colors"
-                        onClick={() => window.scrollTo(0, 0)}
-                      >
-                        {link.name}
-                      </Link>
-                    ) : (
-                      <Link
-                        to={link.href}
-                        className="text-sm text-muted-foreground hover:text-primary transition-colors"
-                      >
-                        {link.name}
-                      </Link>
-                    )}
+                    <Link
+                      href={link.href}
+                      className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                    >
+                      {link.name}
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -154,7 +144,7 @@ const Footer: React.FC = () => {
                 {footerLinks.resources.map((link) => (
                   <li key={link.name}>
                     <Link
-                      to={link.href}
+                      href={link.href}
                       className="text-sm text-muted-foreground hover:text-primary transition-colors"
                     >
                       {link.name}
@@ -175,7 +165,7 @@ const Footer: React.FC = () => {
                 {footerLinks.legal.map((link) => (
                   <li key={link.name}>
                     <Link
-                      to={link.href}
+                      href={link.href}
                       className="text-sm text-muted-foreground hover:text-primary transition-colors"
                     >
                       {link.name}
