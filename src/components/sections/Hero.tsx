@@ -7,35 +7,30 @@ import Spline from '@splinetool/react-spline';
 
 const Hero: React.FC = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Spline 3D Background */}
-      <div className="absolute inset-0 z-0">
-        <Spline scene="https://prod.spline.design/CcVsxT9KLq7tizFN/scene.splinecode" />
-        {/* Overlay for theme blending */}
-        <div className="absolute inset-0 bg-white/60 dark:bg-black/40 pointer-events-none transition-all duration-300" />
-      </div>
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 sm:pt-28 md:pt-2">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="max-w-6xl mx-auto">
-          {/* Badge - Dark/Light mode responsive */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="inline-flex items-center px-4 py-2 rounded-full bg-primary/10 dark:bg-primary/20 border border-primary/20 dark:border-primary/30 text-primary dark:text-primary text-sm font-medium mb-6 sm:mb-8 backdrop-blur-sm -mt-10"
-          >
-            <Zap className="w-4 h-4 mr-2 animate-pulse" />
-            Growth & Strategic Solutions
-          </motion.div>
+        <div className="max-w-6xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-8">
+          {/* Left: Text Content */}
+          <div className="flex-1 max-w-xl w-full mx-auto flex flex-col items-center lg:items-start text-center lg:text-left">
+            {/* Badge - Dark/Light mode responsive */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="inline-flex items-center px-4 py-2 rounded-full bg-primary/10 dark:bg-primary/20 border border-primary/20 dark:border-primary/30 text-primary dark:text-primary text-sm font-medium mb-6 sm:mb-8 backdrop-blur-sm -mt-10"
+            >
+              <Zap className="w-4 h-4 mr-2 animate-pulse" />
+              Growth & Strategic Solutions
+            </motion.div>
 
-          {/* Main Headline - Single line responsive */}
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-foreground mb-4 sm:mb-6 leading-tight text-left"
-          >
-            <div className="flex flex-col">
-              <span className="whitespace-nowrap">
+            {/* Main Headline - Single line responsive */}
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-foreground mb-4 sm:mb-6 leading-tight w-full flex flex-col items-center lg:items-start text-center lg:text-left"
+            >
+              <span className="block w-full">
                 We bring{' '}
                 <span className="text-primary relative inline-block">
                   growth
@@ -47,8 +42,8 @@ const Hero: React.FC = () => {
                   />
                 </span>
               </span>
-              <span className="whitespace-nowrap ml-4">
-              and{' '}
+              <span className="block w-full mt-1">
+                and{' '}
                 <span className="text-primary relative inline-block">
                   scale
                   <motion.div
@@ -60,45 +55,49 @@ const Hero: React.FC = () => {
                 </span>
                 {' '}to life
               </span>
-            </div>
-          </motion.h1>
+            </motion.h1>
 
-          {/* Subtitle */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            className="text-base sm:text-lg md:text-xl lg:text-2xl text-foreground/90 dark:text-foreground/80 mb-8 sm:mb-12 leading-relaxed max-w-2xl text-left"
-          >
-            We help businesses grow faster, scale with confidence, and solve what holds progress back where it matters most.
-          </motion.p>
+            {/* Subtitle */}
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+              className="text-base sm:text-lg md:text-xl lg:text-2xl text-foreground/90 dark:text-foreground/80 mb-8 sm:mb-12 leading-relaxed max-w-2xl text-left"
+            >
+              We help businesses grow faster, scale with confidence, and solve what holds progress back where it matters most.
+            </motion.p>
 
-          {/* CTA Buttons */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.7 }}
-            className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-12 sm:mb-16 justify-start px-2"
-          >
-            <Button 
-              asChild 
-              size="lg" 
-              className="group w-full sm:w-auto text-sm sm:text-base px-6 sm:px-8 py-3 sm:py-4 hover:scale-105 transition-all duration-300"
+            {/* CTA Buttons */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.7 }}
+              className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-8 sm:mb-16 justify-center lg:justify-start px-2"
             >
-              <Link to="/contact">
-                Start Your Growth Journey
-                <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </Button>
-            <Button 
-              variant="outline" 
-              size="lg" 
-              className="group w-full sm:w-auto text-sm sm:text-base px-6 sm:px-8 py-3 sm:py-4 bg-background/50 dark:bg-background/30 backdrop-blur-sm border-border/50 hover:bg-background/70 dark:hover:bg-background/50 hover:scale-105 transition-all duration-300"
-            >
-              <Play className="mr-2 w-4 h-4" />
-              Watch Demo
-            </Button>
-          </motion.div>
+              <Button 
+                asChild 
+                size="lg" 
+                className="group w-full sm:w-auto text-sm sm:text-base px-6 sm:px-8 py-3 sm:py-4 hover:scale-105 transition-all duration-300"
+              >
+                <Link to="/contact">
+                  Start Your Growth Journey
+                  <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </Button>
+              <Button 
+                variant="outline" 
+                size="lg" 
+                className="group w-full sm:w-auto text-sm sm:text-base px-6 sm:px-8 py-3 sm:py-4 bg-background/50 dark:bg-background/30 backdrop-blur-sm border-border/50 hover:bg-background/70 dark:hover:bg-background/50 hover:scale-105 transition-all duration-300"
+              >
+                <Play className="mr-2 w-4 h-4" />
+                Watch Demo
+              </Button>
+            </motion.div>
+          </div>
+          {/* Right: Spline 3D Foreground Visual */}
+          <div className="flex-1 flex justify-center items-center w-full h-[180px] sm:h-[300px] md:h-[400px] lg:h-[600px] xl:h-[700px] max-w-2xl mx-auto lg:mx-0 mt-6 sm:mt-0">
+            <Spline scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode" />
+          </div>
         </div>
       </div>
     </section>
