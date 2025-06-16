@@ -34,14 +34,14 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
 
   return (
     <div
-      className="w-full bg-white dark:bg-neutral-950 font-sans md:px-10"
+      className="w-full bg-white dark:bg-neutral-950 font-sans md:px-10 pt-24"
       ref={containerRef}
     >
       <div className="max-w-7xl mx-auto py-20 px-4 md:px-8 lg:px-10">
-      <h2 className="text-lg md:text-4xl mb-4" style={{ color: '#2abed1' }}>
+        <h2 className="text-lg md:text-4xl mb-8 mt-4" style={{ color: '#2abed1' }}>
           Growth Strategy, Systems, and Support
         </h2>
-        <p className="text-neutral-700 dark:text-neutral-300 text-sm md:text-base max-w-4xl">
+        <p className="text-neutral-700 dark:text-neutral-300 text-sm md:text-base max-w-4xl mb-8">
           Whether you're early-stage and building traction or established and looking to scale more efficiently,<br />
           Perssonify provides the strategy, systems, and support to achieve your growth objectives and drive<br />
           sustainable business expansion in the market.

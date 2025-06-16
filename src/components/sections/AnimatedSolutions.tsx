@@ -1,6 +1,5 @@
 import React from "react";
 import { Timeline } from "@/components/ui/timeline";
-import { title } from "process";
 
 export default function TimelineDemo() {
   const data = [
@@ -19,7 +18,7 @@ export default function TimelineDemo() {
               reinforce brand identity, and accelerate conversions.
             </p>
           </div>
-          <div className="space-y-3">
+          <div className="space-y-2">
             <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300">
               • Social Media Graphics – Static images, GIFs, carousel ads, and post templates for brand consistency
             </div>
@@ -43,7 +42,7 @@ export default function TimelineDemo() {
       title: <span style={{ color: '#2abed1' }}>Email Marketing</span>,
       content: (
         <div>
-          <div className="mb-6 space-y-3 text-sm text-gray-600 dark:text-gray-300">
+          <div className="mb-4 space-y-2 text-sm text-gray-600 dark:text-gray-300">
             <p>
               Turning Prospects into Customers with Automated, Data-Driven Nurturing. Email marketing and marketing automation 
               are critical for sustained engagement, lead nurturing, and customer conversion.
@@ -53,7 +52,7 @@ export default function TimelineDemo() {
               we help businesses streamline customer journeys, improve retention, and maximize ROI.
             </p>
           </div>
-          <div className="space-y-3">
+          <div className="space-y-2">
             <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300">
               • Automated Email Sequences – Behavior-triggered email workflows for onboarding, promotions, abandoned carts, re-engagement, and retention
             </div>
@@ -77,7 +76,7 @@ export default function TimelineDemo() {
       title: <span style={{ color: '#2abed1' }}>Performance Marketing</span>,
       content: (
         <div>
-          <div className="mb-6 space-y-3 text-sm text-gray-600 dark:text-gray-300">
+          <div className="mb-4 space-y-2 text-sm text-gray-600 dark:text-gray-300">
             <p>
               Driving Customers, Users & Revenue with Precision Advertising and Multi-Platform Reach. 
               Digital advertising should be an investment with a measurable return.
@@ -87,7 +86,7 @@ export default function TimelineDemo() {
               and generate high-value leads, customers, and users across multiple platforms.
             </p>
           </div>
-          <div className="space-y-3">
+          <div className="space-y-2">
             <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300">
               • Ad Strategy & Setup – Identifying high-intent audiences, keyword research, and targeting optimization
             </div>
@@ -114,7 +113,7 @@ export default function TimelineDemo() {
       title: <span style={{ color: '#2abed1' }}>Social Media Marketing</span>,
       content: (
         <div>
-          <div className="mb-6 space-y-3 text-sm text-gray-600 dark:text-gray-300">
+          <div className="mb-4 space-y-2 text-sm text-gray-600 dark:text-gray-300">
             <p>
               Building Conversations, Communities & Conversions. Social media is more than just content—it's about 
               building authentic relationships and driving audience engagement that leads to action.
@@ -124,7 +123,7 @@ export default function TimelineDemo() {
               connects with the right audience in meaningful ways.
             </p>
           </div>
-          <div className="space-y-3">
+          <div className="space-y-2">
             <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300">
               • Content Strategy & Planning – Defining and implementing your brand's voice, visual identity, and engagement roadmap
             </div>

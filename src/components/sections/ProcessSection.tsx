@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Target, Lightbulb, Cog, Rocket } from 'lucide-react';
@@ -29,7 +28,7 @@ const ProcessSection: React.FC = () => {
 
   return (
     <section className="py-24 bg-muted/30">
-      <div className="container mx-auto px-4">
+      <div className="max-w-7xl mx-auto py-20 px-4 md:px-8 lg:px-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -65,9 +64,6 @@ const ProcessSection: React.FC = () => {
                   {step.description}
                 </p>
               </div>
-              {index < steps.length - 1 && (
-                <div className="hidden lg:block absolute top-1/2 -right-4 w-8 h-0.5 bg-primary/30 transform -translate-y-1/2" />
-              )}
             </motion.div>
           ))}
         </div>

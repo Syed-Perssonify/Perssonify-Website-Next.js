@@ -3,6 +3,8 @@ import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Sun, Moon } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { motion, AnimatePresence } from 'framer-motion';
+import LogoBlack from '/Logo-Black.png';
+import LogoWhite from '/Logo-White.png';
 
 interface HeaderProps {
   isDarkMode: boolean;
@@ -28,18 +30,18 @@ const Header: React.FC<HeaderProps> = ({ isDarkMode, toggleDarkMode }) => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: 'easeOut' }}
-      className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border"
+      className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border mb-16"
     >
       <div className="container mx-auto px-4 sm:px-6">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2">
-            <motion.div
+          <Link to="/" className="flex items-center space-x-2 pl-1 sm:pl-4">
+            <motion.img
               whileHover={{ scale: 1.05 }}
-              className="text-xl sm:text-2xl font-bold text-primary"
-            >
-              Perssonify
-            </motion.div>
+              src={isDarkMode ? LogoWhite : LogoBlack}
+              alt="Perssonify Logo"
+              className="h-6 w-auto sm:h-7 object-contain transition-all duration-300"
+            />
           </Link>
 
           {/* Desktop Navigation */}

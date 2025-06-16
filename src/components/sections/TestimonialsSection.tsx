@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Star, Quote } from 'lucide-react';
@@ -51,7 +50,7 @@ const TestimonialsSection: React.FC = () => {
 
   return (
     <section className="py-24 bg-gradient-to-br from-primary/5 to-accent/5">
-      <div className="container mx-auto px-4">
+      <div className="max-w-7xl mx-auto py-20 px-4 md:px-8 lg:px-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
