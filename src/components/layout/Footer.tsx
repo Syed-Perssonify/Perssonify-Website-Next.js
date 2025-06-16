@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { TrendingUp, Linkedin, Twitter, Facebook, Youtube, Shield, Lock, CheckCircle, Award, Phone, Mail, MapPin } from 'lucide-react';
+import { Linkedin, Twitter, Facebook, Youtube, Shield, Lock, CheckCircle, Award, Phone, Mail, MapPin, TrendingUp } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const Footer: React.FC = () => {
@@ -64,7 +64,7 @@ const Footer: React.FC = () => {
               <Link to="/" className="inline-block mb-4">
                 <div className="flex items-center space-x-3">
                   <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-                    <TrendingUp size={24} color="#fff" />
+                    <TrendingUp size={24} color="black" />
                   </div>
                   <div>
                     <h3 className="text-2xl font-bold text-primary font-playfair">Perssonify</h3>

@@ -1,7 +1,7 @@
 import React from "react";
-import { Timeline } from "@/components/ui/timeline";
+import { Timeline } from "../ui/timeline";
 
-export default function TimelineDemo() {
+export default function AnimatedSolutions() {
   const data = [
     {
       title: <span style={{ color: '#2abed1' }}>Creative Solutions</span>,
