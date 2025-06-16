@@ -8,14 +8,7 @@ import Spline from '@splinetool/react-spline';
 const Hero: React.FC = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Spline 3D Background */}
-      <div className="absolute inset-0 z-0 -mt-20">
-        <Spline scene="https://prod.spline.design/CcVsxT9KLq7tizFN/scene.splinecode" />
-        {/* Brightness Overlay - more opaque in light mode, less in dark mode */}
-        <div className="absolute inset-0 bg-white/60 dark:bg-white/10 pointer-events-none transition-all duration-300" />
-        {/* Overlay gradient - more opaque in light mode, less in dark mode */}
-        <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/70 to-background/60 dark:from-background/80 dark:via-background/60 dark:to-background/40 pointer-events-none transition-all duration-300" />
-      </div>
+      
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-6xl mx-auto">
