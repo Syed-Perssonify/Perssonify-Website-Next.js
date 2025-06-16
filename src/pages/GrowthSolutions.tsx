@@ -152,7 +152,7 @@ const GrowthSolutions: React.FC = () => {
       </section>
 
       {/* Core Growth Solutions */}
-      <section className="py-24 bg-muted/30">
+      <section className="pt-24 pb-4 bg-muted/30">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -213,7 +213,7 @@ const GrowthSolutions: React.FC = () => {
       </section>
 
       {/* Specialized Growth Solutions */}
-      <section className="py-24">
+      <section className="pt-24 pb-4">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}

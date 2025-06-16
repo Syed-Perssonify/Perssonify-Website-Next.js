@@ -30,7 +30,7 @@ const Layout: React.FC = () => {
   return (
     <div className="min-h-screen bg-background text-foreground flex flex-col">
       <Header isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} />
-      <main className="flex-1 pt-16">
+      <main className="flex-1">
         <Outlet />
       </main>
       <Footer />

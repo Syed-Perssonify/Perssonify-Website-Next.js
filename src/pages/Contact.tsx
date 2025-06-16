@@ -66,9 +66,9 @@ const Contact: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="bg-background">
       {/* Hero Section */}
-      <section className="relative py-24 bg-gradient-to-br from-primary/5 via-background to-accent/5">
+      <section className="relative pt-24 bg-gradient-to-br from-primary/5 via-background to-accent/5">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}

@@ -50,7 +50,7 @@ const Footer: React.FC = () => {
   return (
     <footer className="bg-card border-t border-border">
       {/* Main Footer */}
-      <div className="py-16 px-4">
+      <div className="py-8 px-4">
         <div className="container mx-auto">
           <div className="grid lg:grid-cols-6 gap-8">
             {/* Brand Column */}
@@ -216,7 +216,7 @@ const Footer: React.FC = () => {
       </div>
 
       {/* Bottom Footer */}
-      <div className="bg-muted/30 py-6 px-4">
+      <div className="bg-muted/30 py-3 px-4">
         <div className="container mx-auto">
           <motion.div
             initial={{ opacity: 0 }}
@@ -259,7 +259,7 @@ const Footer: React.FC = () => {
       </div>
 
       {/* Legal Disclaimer */}
-      <div className="bg-muted/50 py-4 px-4">
+      <div className="bg-muted/50 py-2 px-4">
         <div className="container mx-auto">
           <p className="text-xs text-muted-foreground text-center leading-relaxed">
             Perssonify is a business growth platform. We help businesses grow faster, scale with confidence, 

@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
@@ -134,7 +133,7 @@ const StrategicSolutions: React.FC = () => {
       </section>
 
       {/* Process Section */}
-      <section className="py-24 bg-muted/30">
+      <section className="pt-24 pb-4 bg-muted/30">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -251,7 +250,7 @@ const StrategicSolutions: React.FC = () => {
       </section>
 
       {/* Core Strategic Solutions */}
-      <section className="py-24 bg-muted/30">
+      <section className="pt-24 pb-4 bg-muted/30">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -316,7 +315,7 @@ const StrategicSolutions: React.FC = () => {
       </section>
 
       {/* Solutions by Function */}
-      <section className="py-24">
+      <section className="pt-24 pb-4">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
