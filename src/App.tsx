@@ -9,6 +9,7 @@ import GrowthSolutions from "./pages/GrowthSolutions";
 import StrategicSolutions from "./pages/StrategicSolutions";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
+import Blog from "./pages/Blog";
 import ScrollToTop from "./components/ScrollToTop";
 
 const queryClient = new QueryClient();
@@ -27,6 +28,7 @@ const App = () => (
             <Route path="growth-solutions" element={<GrowthSolutions />} />
             <Route path="strategic-solutions" element={<StrategicSolutions />} />
             <Route path="about" element={<About />} />
+            <Route path="blog" element={<Blog />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Route>
         </Routes>

@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Linkedin, Twitter, Facebook, Youtube, Shield, Lock, CheckCircle, Award, Phone, Mail, MapPin, TrendingUp } from 'lucide-react';
@@ -123,12 +122,22 @@ const Footer: React.FC = () => {
               <ul className="space-y-3">
                 {footerLinks.company.map((link) => (
                   <li key={link.name}>
-                    <Link
-                      to={link.href}
-                      className="text-sm text-muted-foreground hover:text-primary transition-colors"
-                    >
-                      {link.name}
-                    </Link>
+                    {link.name === 'Blog' ? (
+                      <Link
+                        to={link.href}
+                        className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                        onClick={() => window.scrollTo(0, 0)}
+                      >
+                        {link.name}
+                      </Link>
+                    ) : (
+                      <Link
+                        to={link.href}
+                        className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                      >
+                        {link.name}
+                      </Link>
+                    )}
                   </li>
                 ))}
               </ul>

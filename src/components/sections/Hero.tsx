@@ -3,19 +3,18 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, Play, TrendingUp, Zap } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
+import Spline from '@splinetool/react-spline';
 
 const Hero: React.FC = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Image */}
+      {/* Spline 3D Background */}
       <div className="absolute inset-0 z-0 -mt-20">
-        <img
-          src="/images/hero-bg.png"
-          alt="Business Growth Transformation"
-          className="w-full h-full object-cover brightness-150"
-        />
-        {/* Overlay gradient - responsive to theme */}
-        <div className="absolute inset-0 bg-gradient-to-r from-background/80 via-background/60 to-background/40 dark:from-background/90 dark:via-background/70 dark:to-background/50" />
+        <Spline scene="https://prod.spline.design/CcVsxT9KLq7tizFN/scene.splinecode" />
+        {/* Brightness Overlay - more opaque in light mode, less in dark mode */}
+        <div className="absolute inset-0 bg-white/60 dark:bg-white/10 pointer-events-none transition-all duration-300" />
+        {/* Overlay gradient - more opaque in light mode, less in dark mode */}
+        <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/70 to-background/60 dark:from-background/80 dark:via-background/60 dark:to-background/40 pointer-events-none transition-all duration-300" />
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
