@@ -1,8 +1,7 @@
-
 import React, { useEffect } from 'react';
 import Hero from '@/components/sections/Hero';
 import ProcessSection from '@/components/sections/ProcessSection';
-import ResultsSection from '@/components/sections/ResultsSection';
+import { Process } from '@/components/sections/ResultsSection';
 import TestimonialsSection from '@/components/sections/TestimonialsSection';
 import CTASection from '@/components/sections/CTASection';
 import AnimatedSolutions from '@/components/sections/AnimatedSolutions';
@@ -18,8 +17,8 @@ const Index: React.FC = () => {
       <Hero />
       <AnimatedSolutions />
       <ProcessSection />
-      <ResultsSection />
-      <TestimonialsSection />
+      <Process />
+      {/* <TestimonialsSection /> */}
       <CTASection />
     </div>
   );
