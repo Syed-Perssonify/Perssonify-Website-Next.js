@@ -204,7 +204,11 @@ const Header: React.FC<HeaderProps> = ({ isDarkMode, toggleDarkMode }) => {
                     {item.hasDropdown ? (
                       <div>
                         <button
-                          onClick={() => handleDropdownToggle(`mobile-${item.name}`)}
+                          onClick={() =>
+                            setActiveDropdown(
+                              activeDropdown === `mobile-${item.name}` ? null : `mobile-${item.name}`
+                            )
+                          }
                           className={`flex items-center justify-between w-full px-4 py-2 text-sm font-medium transition-colors hover:text-primary ${
                             isActive(item.href) ? 'text-primary' : 'text-foreground/80'
                           }`}
